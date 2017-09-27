@@ -8,6 +8,7 @@ const bodyParser = require('body-parser')
 const cookieSession = require('cookie-session')
 const csurf = require('csurf')
 const flash = require('connect-flash')
+const redis = require('socket.io-redis')
 
 const middleware = require('./middleware')
 const query = require('./query')
@@ -18,6 +19,10 @@ const PORT = process.env.PORT || 3000
 const app = express()
 const httpServer = http.Server(app)
 const io = socketio(httpServer)
+io.adapter(redis({
+  host: process.env.REDIS_HOST,
+  port: process.env.REDIS_PORT
+}))
 
 const sessionMiddleware = cookieSession({
   name: 'chatsession',

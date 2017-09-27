@@ -21,6 +21,7 @@
     "mysql": "^2.14.1",
     "pug": "^2.0.0-rc.4",
     "socket.io": "^2.0.3",
+    "socket.io-redis": "^5.2.0",
     "validator": "^8.2.0"
   },
   "devDependencies": {
