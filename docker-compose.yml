@@ -1,0 +1,39 @@
+version: "3"
+services:
+  redis:
+    image: redis:alpine
+    networks:
+      - chat
+  db:
+    image: mysql:5.7
+    networks:
+      - chat
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      - MYSQL_USER=chat
+      - MYSQL_PASSWORD=chat
+      - MYSQL_DATABASE=chat
+      - MYSQL_RANDOM_ROOT_PASSWORD=1
+  web:
+    build: .
+    depends_on:
+      - db
+      - redis
+    networks:
+      - chat
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=3000
+      - SECRET=mysecret
+      - DATABASE_HOST=db
+      - DATABASE_USER=chat
+      - DATABASE_PASSWORD=chat
+      - DATABASE_NAME=chat
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+networks:
+  chat:
+volumes:
+  db-data:
