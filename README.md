@@ -151,9 +151,9 @@ $ docker build -t wpsn-image .
 
 Docker를 사용할 때에, 하나의 서비스를 운영하기 위해 여러 종류의 컨테이너를 동시에 띄워야 할 일이 자주 생깁니다. 이런 작업을 쉽게 만들어주는 Docker Compose라는 도구가 있습니다. 어떤 종류의 컨테이너를 어떻게 실행하면 되는지를 `docker-compose.yml` 파일에 미리 작성해두고 그 파일을 이용해 한 번에 여러 개의 컨테이너를 실행시킬 수 있습니다. 여러 컨테이너를 이용한 서비스 배포, 혹은 테스트를 해야할 때 Docker Compose를 이용해 전체 컨테이너를 빠르게 실행시킬 수 있습니다.
 
-Docker 설치가 잘 되었다면 바로 Docker Compose를 시험해볼 수 있습니다. 이 폴더에서 `docker-compose up` 명령을 실행해보세요. 또한 이 폴더의 `docker-compose.yml` 파일의 내용도 확인해보세요.
+Docker 설치가 잘 되었다면 바로 Docker Compose를 시험해볼 수 있습니다. 이 폴더에서 `docker-compose up` 명령을 실행해보세요. 또한 이 폴더의 `docker-compose.yml` 파일의 내용도 확인해보세요. 컨테이너의 파일 공유를 위한 [volume](https://docs.docker.com/engine/admin/volumes/volumes/), 컨테이너 간 통신을 위한 [network](https://docs.docker.com/engine/userguide/networking/) 기능을 사용하고 있습니다.
 
-이 폴더의 `docker-compose.yml` 파일에서는 컨테이너의 파일 공유를 위한 [volume](https://docs.docker.com/engine/admin/volumes/volumes/), 컨테이너 간 통신을 위한 [network](https://docs.docker.com/engine/userguide/networking/) 기능을 사용하고 있습니다.
+Docker Compose로 실행된 컨테이너를 지우려면 `docker-compose rm` 명령을 실행해주세요.
 
 ### 클라우드에서 Docker 실행하기
 
